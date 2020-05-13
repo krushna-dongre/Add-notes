@@ -1,0 +1,22 @@
+<h4 class ='highlight'>Create Notes </h4>
+<textarea class="form-control z-depth-1" 
+[(ngModel)]="note" rows="3"
+placeholder="Write something here..."></textarea>
+<br>
+<button class="btn btn-success" 
+(click)="addNote()">
+Note it
+</button>
+
+<hr><hr><hr>
+<h4 class ='highlight'>Your Notes ::</h4>
+<ul class="list-group" *ngIf = 'notes.length > 0'>
+    <app-notes-list-item *ngFor ='let note of notes' [note] ='note' (noteDeleted)='deleteNote($event)'>
+
+    </app-notes-list-item>
+</ul>
+<h6 *ngIf = "notes.length <= 0" class ='highlight'>
+    Add notes to display here !
+</h6>
+
+    
